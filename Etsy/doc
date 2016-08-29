@@ -1,0 +1,135 @@
+
+
+I need a script that will scrape Etsy by keyword to give the following data: * Sellers of such products * Total sales by these sellers * Total reviews by these sellers * ‘Favorited by’ per product of sellers of such products and if possible: * Total sales per product of sellers of such products This is for my personal use so does design is not important. The other thing to note is that I work on Mac so it would need to run on Adobe Air or similar or be server-based. Your past experience with similar projects would clearly be an advantage so please provide examples. Thanks and I look forward to your proposal
+
+
+
+My name is Ravi and I'm a data analyst, a web scraper, and a python developer. I've been working on this for 3+ years now.  I've done multiple scraping projects. For this projects, I'd be using either of two technologies - depending on your choice. I can discuss both with you.  1. Python + Selenium - This will mimic a web-browser, something like how we humans tend to browse, but it will scrape data too. Pros - Less chances of getting banned. Cons - Slow 2. Python + BeautifulSoup - This will be quite fast, but chances of getting banned are also higher.  Coming to the requirements you've stated for data:  I searched for the keyword "good" and I was sent to https://www.etsy.com/in-en/search/paper-and-party-supplies?q=good&ref=esearch_group0  which is pretty generic and can be utilized   * Sellers of such products -- On the search page, below the photo is the seller name. This can be scraped. We can go until the last page or until the page you want.  * Total sales by these sellers   This can be scraped from the https://www.etsy.com/in-en/shop/CMWrapNShipSupply seller page which is again generic and can be utilized.  * Total reviews by these sellers  Again the same logic.  * ‘Favorited by’ per product of sellers of such products  Each product page has this data. We can scrape from there. Example - https://www.etsy.com/in-en/listing/267132072/mini-wooden-baseball-bats-set-of-12?ref=featured_listings_row  and if possible: * Total sales per product of sellers of such products  This one I could not understand what are you trying to get. If you could explain in detail, I'm sure I can fetch that information.   I would be using Python programming language, which is free and some Python modules which are again free.  You'd need just to pass the keywords and the script can download the data into a csv file and give it to you. 
+
+
+
+
+
+
+
+
+
+Thanks for your interest in this project.
+
+Can you please explain where the script would be hosted.
+
+
+The one part of the task you wanted clarification on was this part: "Total sales per product of sellers of such products"
+
+Let me give you an example of this so you understand better what I mean.
+
+Please take a look at this page as an example: https://www.etsy.com/shop/LearnedStitchworks/sold
+
+This is a list of all 23,509 products (as of the time of writing) that this vendor has sold illustrated over 980 pages.
+
+You will see that there are 2 sold of 'Dog Bow Tie or Flower - Mardi Gras' (https://www.etsy.com/listing/174576305/dog-bow-tie-or-flower-mardi-gras)
+
+So what I am looking for is a count of all products sold plus Favorited by, which make up the total sales like this:
+
+Product Name, Product URL, Favorited by, Total Sales
+
+eg
+
+Dog Bow Tie or Flower - Mardi Gras, https://www.etsy.com/listing/174576305/dog-bow-tie-or-flower-mardi-gras, 38, 163
+
+Assuming there are 163 occurrences of sales of that product in the 980 pages of sales for that vendor (as of the time of writing).
+
+So that the total of all the sales of all the products adds up to the 23,509 total sold for that vendor (as of the time of writing).
+
+Does that make sense?
+
+
+Thanks and I look forward to hearing from you again.
+
+Kind regards
+
+
+
+
+
+A follow-up to my previous email. I've just noticed that Etsy only display a mamimum of 250x48=12,000 search results, either by Relevancy, Highest Price or Lowest Price.
+
+Therefore it will necessary to drill down to each Category and Sub-Category level like this:
+
+
+All categories, “dog”, (653,030 Results)
+
+Pet Supplies, “dog”, (239,705 Results)
+
+Pet Supplies, Pet Collars & Leashes, “dog”, (107,961 Results)
+Pet Supplies, Pet Collars & Leashes, Pet Collars & Jewelry, “dog”, (71,745 Results)
+Pet Supplies, Pet Collars & Leashes, Pet Id Tags, “dog”, (16,736 Results)
+Pet Supplies, Pet Collars & Leashes, Pet Leashes, “dog”, (10,035 Results)
+Pet Supplies, Pet Collars & Leashes, Pet Harnesses & Backpacks, “dog”, (5,338 Results)
+
+Pet Supplies, Pet Clothing, Accessories & Shoes, “dog”, (72,004 Results)
+Pet Supplies, Pet Clothing, Accessories & Shoes, Pet Accessories, “dog”, (35,157 Results)
+Pet Supplies, Pet Clothing, Accessories & Shoes, Pet Accessories, Pet Neckwear, “dog”, (20,651 Results)
+Pet Supplies, Pet Clothing, Accessories & Shoes, Pet Accessories, Pet Bows & Hair Accessories, “dog”, (6,181 Results)
+Pet Supplies, Pet Clothing, Accessories & Shoes, Pet Accessories, Pet Charms & Bells, “dog”, (740 Results)
+Pet Supplies, Pet Clothing, Accessories & Shoes, Pet Accessories, Pet Sunglasses, “dog”, (11 Results)
+
+So first task would be to produce a full list of the Results by Category and Sub-Category as above.
+
+Then go through each of those lowest level Sub-Categories to come up with a list of sellers as per the initial job posting.
+
+Hope that makes sense. Thanks.
+
+
+
+
+Hi again
+
+To make life easier, I have made a sample file - see attached.
+
+For the sake of the file, I have used the keyword: dog
+
+The first tab is called Category Search and comes from this search: 
+https://www.etsy.com/search?q=dog
+
+The second tab is called Seller Search, which is produced from going through all the lowest level Sub-Categories from the Category Search. 
+
+In the example data, the following searches are used for illustration purposes: 
+https://www.etsy.com/search/pet-supplies/pet-clothing-accessories-and-shoes/pet-accessories/pet-hats-and-sunglasses?q=dog
+https://www.etsy.com/search/pet-supplies/pet-clothing-accessories-and-shoes/pet-shoes-and-booties/pet-shoes?q=dog
+
+The third tab is called Product Search, which is produced by going through all the sellers from the Seller Search.
+
+In the example data, the following searches are used for illustration purposes: 
+https://www.etsy.com/shop/CobwebsCottage/sold
+https://www.etsy.com/shop/dazzledoggie/sold (example only shows 1st page)
+
+I hope that clarifies matters.
+
+If you are still keen to secure the job, I would also like you to clarify:
+1) Where the script will be hosted if it is not running local to me on Adobe Air or similar?
+2) If you foresee any issues with bot blockers and how we will get around these?
+3) If I decide to sell this, whether you are able to produce a version with license secured access?
+4) And if you would be prepared to support it on a paid basis moving forward?
+
+Thank you once again for your interest in the project and FYI I have another couple of sites to be scrapped too if we successfully implement this and reuse elements of it for the new scripts.
+
+Kind regards
+
+
+
+
+
+
+
+Oops, forgot to say… In the Product Search example of:
+https://www.etsy.com/shop/dazzledoggie/sold
+you will notice that the sales of all products in the spreadsheet total 24, which is the number of sales on the 1st page. 
+What I am looking for though is actually the total of all the sales for this seller on all her 6 pages so that the total sales equals the total of 136 from the Seller Search page.
+
+Please let me know if you have any questions.
+
+Thanks
+
+
+Mark

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Crowdkast</title>
+<!-- Mainly scripts -->
+        <script src="js/jquery-2.1.1.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+        <script src="js/plugins/nouslider/jquery.nouislider.min.js"></script>
+        <!-- FooTable -->
+        <script src="js/plugins/footable/footable.all.min.js"></script>
+
+        <script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+        <link href="css/plugins/footable/footable.core.css" rel="stylesheet">
+        <link href="css/plugins/datapicker/bootstrap-datepicker3.css" rel="stylesheet">
+        <link href="css/plugins/nouslider/jquery.nouislider.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+
+        <div id="wrapper">
+
+            <nav class="navbar-default navbar-static-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav metismenu" id="side-menu">
+                        <li class="nav-header logo-head">
+                            <div class="dropdown profile-element">
+                                <span><h4>CROWDKAST</h4></span>
+                            </div>
+                        </li>
+                        <li><a href="#"><i class="fa fa-suitcase"></i> <span class="nav-label">Portfolio</span></a></li>
+                        <li><a href="#"><i class="fa fa-eye"></i> <span class="nav-label">Watchlist</span></a></li>
+                        <li><a href="#"><i class="fa fa-clock-o"></i> <span class="nav-label">History</span></a></li>
+                        <li><a href="#"><i class="fa fa-cog"></i> <span class="nav-label">Option Chain</span></a></li>
+                        <li><a href="#"><i class="fa fa-file-text-o"></i> <span class="nav-label">Logs</span></a></li>
+                    </ul>
+
+                </div>
+            </nav>
+
+            <div id="page-wrapper" class="gray-bg">
+                <div class="row wrapper border-bottom white-bg page-heading">
+                    <div class="col-lg-10 col-md-10 col-sm-10 top-bar">
+                        <ol class="menu">
+                            <li><a href="index-2.html">About</a></li>
+                            <li><a href="index-2.html">Data</a></li>
+                            <li><a href="index-2.html">Liscencing</a></li>
+                        </ol>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2  top-bar">
+                        <img src="img/a4.jpg" width="50" height="50" class="img-circle"/>
+                        <div class="dropdown profile-element codekast"> 
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                                <span class="clear">  <span class="text-muted text-xs block codekast">John Smith <b class="caret"></b></span> </span> </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                <li><a href="profile.html">Profile</a></li>
+                                <li><a href="contacts.html">Contacts</a></li>
+                                <li><a href="mailbox.html">Mailbox</a></li>
+                                <li class="divider"></li>
+                                <li><a href="login.html">Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrapper wrapper-content animated fadeInRight">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="ibox-content custom">
+                                <div class="col-lg-4 col-xs-4">
+                                    <img src="img/apple.jpg" height="65" width="100"/>
+                                </div>
+                                <div class="col-lg-8 col-xs-8 block-2">
+                                    <h2>AAPL</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="ibox-content custom" style="text-align: center">
+                                <h2><b>$97.00</b></h2>
+                                <small>Crowdkast Target Price</small>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-content">
+                                    <h2 class="btn-content">
+                                        <div aria-label="Default button group" role="group" class="btn-group codekast"> 
+                                            <button class="btn btn-white" type="button">Stock</button> 
+                                            <button class="btn btn-white" type="button">FSLR</button> 
+                                            <button class="btn btn-white active" type="button">Get Quote</button> 
+                                        </div>
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="ibox-content custom-2" style="text-align: center; height:20px;">
+                                <div class="row number-row">
+                                    <div class="col-lg-6"><h2><b>Apple Inc. (AAPL)</b></h2></div>
+                                    
+                                </div>
+                                <div class="row number-row">
+                                    <div class="col-lg-3 gray">118.23</div>
+                                    <div class="col-lg-3 red">0.05 (0.04%)</div>
+                                    
+                                </div>
+                                
+                               
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="row">
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ibox float-e-margins codekast">
+
+                                <table class="footable table table-stripped toggle-arrow-tiny codekast" data-page-size="8">
+                                    <thead class="codekast">
+                                        <tr>
+
+                                            <th>Open Interest</th>
+                                            <th>Price</th>
+                                            <th>IV</th>
+                                            <th>CKV</th>
+                                            <th>%Change</th>                    
+                                            
+                                      
+                                        </tr>
+                                    </thead>
+                                    <tbody class="codekast">
+                                        <tr>
+                                           
+                                            <td class="success">0.00</td>
+                                            <td class="success">1</td>
+                                            <td class="success">0</td>
+                                            <td class="success">485.00</td>
+                                            <td class="success">1.60</td>
+                                           
+                                           
+                                        </tr>
+
+                                        <tr>
+                                           
+                                            <td class="danger">0.00</td>
+                                            <td class="danger">1</td>
+                                            <td class="danger">0</td>
+                                            <td class="danger">485.00</td>
+                                            <td class="danger">1.60</td>
+                                           
+                                           
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        
+
+        <!-- Page-Level Scripts -->
+        <script>
+            $(document).ready(function () {
+                $('.footable').footable();
+                $('#date_1').datepicker({});
+                $("#basic_slider").noUiSlider({
+                    start: 40,
+                    behaviour: 'tap',
+                    connect: 'upper',
+                    range: {
+                        'min': 20,
+                        'max': 80
+                    }
+                });
+                $("#advance_slider").noUiSlider({
+                    start: 40,
+                    step: 10,
+                    range: {
+                        'min': 0,
+                        '20%': [300, 100],
+                        '50%': [800, 50],
+                        'max': 1000
+                    }
+                });
+                $("#advance_slider").noUiSlider.on('update', function (values, handle) {
+                    $("#slider_count").text(values[handle]);
+                });
+
+            });
+
+        </script>
+
+    </body>
+</html>

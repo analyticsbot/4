@@ -1,0 +1,5 @@
+('C:\\Users\\Ravi Shankar\\Documents\\Upwork\\Deepak\\executable\\build\\rest_api_v8\\sqlalchemy-1.0.8-py2.7-win32.egg',
+ None,
+ set(['*.py', '*.pyc', '*.pyd', '*.pyo', '*.so', 'EGG-INFO']),
+ 'DATA',
+ [])

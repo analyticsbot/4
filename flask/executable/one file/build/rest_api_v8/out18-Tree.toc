@@ -1,0 +1,5 @@
+('C:\\Users\\Ravi Shankar\\Documents\\Upwork\\Deepak\\executable\\one file\\build\\rest_api_v8\\pyopenssl-0.15.1-py2.7.egg',
+ None,
+ set(['*.py', '*.pyc', '*.pyd', '*.pyo', '*.so', 'EGG-INFO']),
+ 'DATA',
+ [])

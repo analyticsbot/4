@@ -1,0 +1,5 @@
+('C:\\Users\\Ravi Shankar\\Documents\\Upwork\\Deepak\\executable\\build\\rest_api_v8\\beautifulsoup4-4.3.2-py2.7.egg',
+ None,
+ set(['*.py', '*.pyc', '*.pyd', '*.pyo', '*.so', 'EGG-INFO']),
+ 'DATA',
+ [])

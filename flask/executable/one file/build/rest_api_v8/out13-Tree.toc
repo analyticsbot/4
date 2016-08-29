@@ -1,0 +1,7 @@
+('c:\\python27\\lib\\site-packages\\markupsafe-0.23-py2.7-win32.egg',
+ None,
+ set(['*.py', '*.pyc', '*.pyd', '*.pyo', '*.so', 'EGG-INFO']),
+ 'DATA',
+ [('markupsafe\\_speedups.c',
+   'c:\\python27\\lib\\site-packages\\markupsafe-0.23-py2.7-win32.egg\\markupsafe\\_speedups.c',
+   'DATA')])

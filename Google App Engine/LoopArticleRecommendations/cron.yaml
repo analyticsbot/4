@@ -1,0 +1,4 @@
+cron:
+- description: update Default Recommendations
+  url: /task/updateDefaultRecs
+  schedule: every 20 minutes

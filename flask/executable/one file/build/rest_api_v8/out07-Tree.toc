@@ -1,0 +1,10 @@
+('c:\\python27\\lib\\site-packages\\nose-1.3.4-py2.7.egg',
+ None,
+ set(['*.py', '*.pyc', '*.pyd', '*.pyo', '*.so', 'EGG-INFO']),
+ 'DATA',
+ [('nose\\usage.txt',
+   'c:\\python27\\lib\\site-packages\\nose-1.3.4-py2.7.egg\\nose\\usage.txt',
+   'DATA'),
+  ('man\\man1\\nosetests.1',
+   'c:\\python27\\lib\\site-packages\\nose-1.3.4-py2.7.egg\\man\\man1\\nosetests.1',
+   'DATA')])

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="exporter-version" content="Evernote Mac 6.2 (452688)"/><meta name="altitude" content="287.281494140625"/><meta name="author" content="bpeintner@gmail.com"/><meta name="created" content="2015-12-19 04:21:10 +0000"/><meta name="latitude" content="39.05379671964019"/><meta name="longitude" content="-94.61525929888897"/><meta name="source" content="desktop.mac"/><meta name="updated" content="2015-12-19 05:05:50 +0000"/><title>Testing for Simple Python server</title></head><body>
+<div><br/></div>
+<ol>
+<li>First call for <a href="http://localhost:8080/XX/articleinject.js?ver=QQ">http://localhost:8080/XX/articleinject.js?ver=QQ</a>
+<ol>
+<li>WORKED</li>
+</ol>
+</li>
+<li>Second call for <a href="http://localhost:8080/XX/articleinject.js?ver=QQ">http://localhost:8080/XX/articleinject.js?ver=QQ</a>  (test cache)
+<ol>
+<li><span style="font: 11.0px Menlo; font-variant-ligatures: no-common-ligatures">ERROR    2015-12-19 04:19:29,747 <a href="http://webapp2.py:1553">webapp2.py:1553</a>] 'unicode' object is not callable<br/>
+Traceback (most recent call last):<br/>
+  File "/Users/bart/google-cloud-sdk/platform/google_appengine/lib/webapp2-2.5.2/webapp2.py", line 1547, in __call__<br/>
+    return response(environ, start_response)<br/>
+TypeError: 'unicode' object is not callable<br/>
+INFO     2015-12-19 04:19:29,755 <a href="http://module.py:787">module.py:787</a>] default: "GET /XX/articleinject.js?ver=QQ HTTP/1.1" 500 699</span></li>
+</ol>
+</li>
+<li><span style="font-size: 11px;"><span style="font-family: Menlo;">First call for </span></span><a href="http://localhost:8080/getRecommendations?appId=XX&amp;articleId=YY&amp;clientId=ZZ">http://localhost:8080/getRecommendations?appId=XX&amp;articleId=YY&amp;clientId=ZZ</a>
+<ol>
+<li>MOSTLY WORKED, except cache_recs not populated</li>
+</ol>
+</li>
+<li>Second call for <a href="http://localhost:8080/getRecommendations?appId=XX&amp;articleId=YY&amp;clientId=ZZ">http://localhost:8080/getRecommendations?appId=XX&amp;articleId=YY&amp;clientId=ZZ</a>
+<ol>
+<li>MOSTLY WORKED, except it used mem_cache, not cache_recs</li>
+</ol>
+</li>
+<li>Second call for <a href="http://localhost:8080/getRecommendations?appId=XX&amp;articleId=YY&amp;clientId=ZZ">http://localhost:8080/getRecommendations?appId=XX&amp;articleId=YY&amp;clientId=ZZ</a>
+<ol>
+<li>WORKED, used cache_recs</li>
+</ol>
+</li>
+<li>First call for <a href="http://localhost:8080/getRecommendations?appId=XX&amp;articleId=YY&amp;clientId=ZZ">http://localhost:8080/getRecommendations?appId=XX&amp;articleId=WW&amp;clientId=ZZ</a>  (new article)
+<ol>
+<li>MOSTLY WORKED, returned default recs, but did not have “should_request” since it was the first</li>
+</ol>
+</li>
+<li>Second call, 5 seconds later, for <a href="http://localhost:8080/getRecommendations?appId=XX&amp;articleId=YY&amp;clientId=ZZ">http://localhost:8080/getRecommendations?appId=XX&amp;articleId=WW&amp;clientId=ZZ</a>  (new article)
+<ol>
+<li>MOSTLY WORKED, but ‘should_request’ did not have the reasoning_server address in it. it had appData</li>
+<li>The problem is that ‘XX’ is used as the memcache key for 2 different purposes, appData and ReaoningServer</li>
+</ol>
+</li>
+<li>First call to <a href="http://localhost:8080/registerClick?appId=XX&amp;&amp;articleId=YY&amp;clientId=ZZ&amp;relatedArticleId=RR">http://localhost:8080/registerClick?appId=XX&amp;&amp;articleId=YY&amp;clientId=ZZ&amp;relatedArticleId=RR</a>
+<ol>
+<li>WORKED</li>
+</ol>
+</li>
+<li>call to <a href="http://localhost:8080/store?token=TOKEN&amp;key=jstemplate:vQQ&amp;value=BLAH">http://localhost:8080/store?token=TOKEN&amp;key=jstemplate:vQQ&amp;value=BLAH</a>
+<ol>
+<li>FAILED, not implemented</li>
+</ol>
+</li>
+<li>call to <a href="http://localhost:8080/store?token=TOKEN&amp;key=appdata:XX&amp;value=BLAH">http://localhost:8080/store?token=TOKEN&amp;key=appdata:XX&amp;value=BLAH</a>
+<ol>
+<li>FAILED, not implemented</li>
+</ol>
+</li>
+<li>call o <a href="http://localhost:8080/store?token=TOKEN&amp;key=rec:XX:YY&amp;value=BLAH">http://localhost:8080/store?token=TOKEN&amp;key=rec:XX:YY&amp;value=BLAH</a>
+<ol>
+<li>FAILED, not implemented</li>
+</ol>
+</li>
+<li>call to <a href="http://localhost:8080/store?token=TOKEN&amp;key=defaultrecs:XX&amp;value=BLAH">http://localhost:8080/store?token=TOKEN&amp;key=defaultrecs:XX&amp;value=BLAH</a>
+<ol>
+<li>FAILED, partially implemented</li>
+<li><span style="font: 11.0px Menlo; font-variant-ligatures: no-common-ligatures">ERROR    2015-12-19 04:50:04,496 <a href="http://webapp2.py:1553">webapp2.py:1553</a>] global name 'MyData' is not defined<br/>
+Traceback (most recent call last):<br/>
+  File "/Users/bart/google-cloud-sdk/platform/google_appengine/lib/webapp2-2.5.2/webapp2.py", line 1536, in __call__<br/>
+    rv = self.handle_exception(request, response, e)<br/>
+  File "/Users/bart/google-cloud-sdk/platform/google_appengine/lib/webapp2-2.5.2/webapp2.py", line 1530, in __call__<br/>
+    rv = self.router.dispatch(request, response)<br/>
+  File "/Users/bart/google-cloud-sdk/platform/google_appengine/lib/webapp2-2.5.2/webapp2.py", line 1279, in default_dispatcher<br/>
+    return route.handler_adapter(request, response)<br/>
+  File "/Users/bart/google-cloud-sdk/platform/google_appengine/lib/webapp2-2.5.2/webapp2.py", line 1102, in __call__<br/>
+    handler = self.handler(request, response)<br/>
+  File "/Users/bart/google-cloud-sdk/platform/google_appengine/lib/webapp2-2.5.2/webapp2.py", line 572, in dispatch<br/>
+    return self.handle_exception(e, self.app.debug)<br/>
+  File "/Users/bart/google-cloud-sdk/platform/google_appengine/lib/webapp2-2.5.2/webapp2.py", line 570, in dispatch<br/>
+    return method(*args, **kwargs)<br/>
+  File "/Users/bart/proj/LoopArticleRecommendations/main.py", line 389, in get<br/>
+    self.post()<br/>
+  File "/Users/bart/proj/LoopArticleRecommendations/main.py", line 400, in post<br/>
+    data = MyData()<br/>
+NameError: global name 'MyData' is not defined<br/>
+INFO     2015-12-19 04:50:04,505 <a href="http://module.py:787">module.py:787</a>] default: "GET /store?token=TOKEN&amp;key=defaultrecs:XX&amp;value=BLAH HTTP/1.1" 500 1802</span></li>
+</ol>
+</li>
+<li><span style="font-size: 11px;"><span style="font-family: Menlo;">call to </span></span><a href="http://localhost:8080/store?token=TOKEN&amp;key=reasoningserver:XX&amp;value=http://127.0.0.1">http://localhost:8080/store?token=TOKEN&amp;key=reasoningserver:XX&amp;value=http://127.0.0.1</a>
+<ol>
+<li>FAILED, not implemented</li>
+</ol>
+</li>
+<li>cron job /task/<b style="font-weight:normal;"><span style="font-size: 14px; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline;">updateDefaultRecs</span></b>
+<ol>
+<li><span style="font-family: Arial;">did not happen 20 minutes after start</span></li>
+<li><font face="Arial">Changed to every 1 minute, still didn’t work.</font></li>
+<li><span style="font-family: Arial;">Maybe this would help: </span><a href="http://stackoverflow.com/questions/10942104/simple-cron-job-in-google-app-engine-python"/><a href="http://stackoverflow.com/questions/10942104/simple-cron-job-in-google-app-engine-python">http://stackoverflow.com/questions/10942104/simple-cron-job-in-google-app-engine-python</a></li>
+</ol>
+</li>
+</ol>
+<div><br/></div>
+</body></html>
